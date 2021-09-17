@@ -6,7 +6,6 @@ function inputNumbers(number){
 
 function inputNumbersKeyboard(){
   window.document.addEventListener("keydown", function(event){
-    console.log(event)
     let num = document.querySelector(".result").innerHTML
     if(event.key === "0"){
       document.querySelector(".result").innerHTML = num + '0'
