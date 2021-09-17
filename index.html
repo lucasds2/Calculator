@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Calculadora</title>
+</head>
+<body>
+  <div class="container">
+    <div class="container-result">
+      <div class="result">
+        
+      </div>
+    </div>
+    <div class="container-operators">
+      <div class="sub-operators">
+        <img onclick="inputNumbers('+')" id="addition" src="./images/addition.png" width="57px">
+        <img id="less" onclick="inputNumbers('-')" src="./images/less.png" width="55px">
+        <img id="multiplication" onclick="inputNumbers('*')" src="./images/multiplication.png" width="57px">
+        <img id="division" onclick="inputNumbers('/')" src="./images/division.png" width="56px">
+      </div>
+    </div>
+    <div class="clean-backspace">
+      <div onclick="clean()" class="cleanAndBackspace">
+        C
+      </div>
+      <div onclick="backspace()" class="cleanAndBackspace">
+        <
+      </div>
+    </div>
+    <div class="container-number">
+        
+      <div onclick="inputNumbers('1')"" class="number" id="1">
+        1
+      </div>
+      <div onclick="inputNumbers('2')" class="number" id="2">
+        2
+      </div>
+      <div onclick="inputNumbers('3')" class="number" id="3">
+        3
+      </div>
+      <div onclick="inputNumbers('4')" class="number" id="4">
+        4
+      </div>
+      <div onclick="inputNumbers('5')" class="number" id="5">
+        5
+      </div>
+      <div onclick="inputNumbers('6')" class="number" id="6">
+        6
+      </div>
+      <div onclick="inputNumbers('7')" class="number" id="7">
+        7
+      </div>
+      <div onclick="inputNumbers('8')" class="number" id="8">
+        8
+      </div>
+      <div onclick="inputNumbers('0')" class="number">0</div>
+      <div onclick="inputNumbers('9')" class="number" id="9">
+        9
+      </div>
+      <div onclick="calcOperation()" style="font-size: 0px;" class="number">
+        <img src="./images/iguality.png" style="position: relative; top: 33%; left: 1%;"alt="" width="60px">
+      </div>
+  </div>
+</div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

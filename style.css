@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  background: #2f2f2f;
+}
+
+.container{
+  background: linear-gradient(to bottom, #3f4c6b 0%,#3f4c6b 100%);
+  border: 5px solid black;
+  border-radius: 30px;
+  width: 500px;
+  height: 890px;
+  margin: 10px auto 0px auto;
+}
+
+.container-result{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: solid 5px black;
+}
+
+.result{
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+  overflow: hidden;
+}
+
+.container-operators{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: solid 5px black;
+}
+
+.sub-operators img{
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+img{
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+
+img:hover{
+  cursor: pointer;
+}
+
+img::selection, .operators::selection{
+  background: none;
+}
+
+.container-number{
+  width: 100%;
+  height: 66%;
+  border-top: solid 5px black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.clean-backspace{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.number, .cleanAndBackspace{
+  width: 150px;
+  font-size: 80px;
+  color: white;
+  border-radius: 30px;
+  text-align: center;
+  margin: 10px auto 0px auto;
+  height: 130px;
+  border: solid 5px black;
+}
+
+.cleanAndBackspace{
+  margin-bottom: 4px;
+}
+
+.number:hover, .cleanAndBackspace:hover{
+  cursor: pointer;
+  background-color: rgba(255,255,255, 0.2);
+}
+
+.number:active, .cleanAndBackspace:active{
+  background-color: rgba(255,255,255, 0.1);
+}
+
+.number::selection, .cleanAndBackspace::selection{
+  background: none;
+}
+
+.number:nth-child(12){
+  grid-row: 4 / 5;
+  grid-column: 2 / 3;
+}
+
+.number:nth-child(11){
+  width: 192%;
+  margin-left: 6px;
+}
+
+.cleanAndBackspace:nth-child(2){
+  width: 196%;
+}
+
+img:hover{
+  background-color: rgba(255,255,255, 0.2);
+  border-radius: 60%;
+}
+
+img:active{
+  background-color: rgba(255,255,255, 0.1);
+}
