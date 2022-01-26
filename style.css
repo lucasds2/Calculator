@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-*{
+
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
 
-body{
+body {
   background: #2f2f2f;
 }
 
-.container{
-  background: linear-gradient(to bottom, #3f4c6b 0%,#3f4c6b 100%);
+.container {
+  background: linear-gradient(to bottom, #3f4c6b 0%, #3f4c6b 100%);
   border: 5px solid black;
   border-radius: 30px;
   width: 350px;
@@ -19,7 +21,7 @@ body{
   margin: 80px auto 0px auto;
 }
 
-.container-result{
+.container-result {
   width: 100%;
   height: 80px;
   display: flex;
@@ -28,14 +30,14 @@ body{
   border-bottom: solid 5px black;
 }
 
-.result{
+.result {
   color: white;
   padding: 10px;
   font-size: 40px;
   overflow: hidden;
 }
 
-.container-operators{
+.container-operators {
   width: 100%;
   height: 70px;
   display: flex;
@@ -43,26 +45,27 @@ body{
   border-bottom: solid 5px black;
 }
 
-.sub-operators img{
+.sub-operators img {
   margin-right: 10px;
   margin-left: 10px;
 }
 
-img{
+img {
   margin-right: 10px;
   position: relative;
   top: 2px;
 }
 
-img:hover{
+img:hover {
   cursor: pointer;
 }
 
-img::selection, .operators::selection{
+img::selection,
+.operators::selection {
   background: none;
 }
 
-.container-number{
+.container-number {
   width: 100%;
   height: 59%;
   border-top: solid 5px black;
@@ -70,12 +73,14 @@ img::selection, .operators::selection{
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.clean-backspace{
+.clean-backspace {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.number, .cleanAndBackspace{
+.number,
+.cleanAndBackspace,
+.iguality {
   width: 100px;
   font-size: 60px;
   color: white;
@@ -86,67 +91,80 @@ img::selection, .operators::selection{
   border: solid 5px black;
 }
 
-.number img{
-  position: relative; 
-  top: 33%; 
+.iguality {
+  width: 185%;
+  margin-left: 6px;
+  font-size: 0;
+  display: grid;
+  justify-content: center;
+}
+
+.iguality img {
+  position: relative;
+  top: 33%;
   left: 1%;
   width: 60px;
 }
 
-.cleanAndBackspace{
+.cleanAndBackspace {
   margin-bottom: 4px;
 }
 
-.number:hover, .cleanAndBackspace:hover{
+.number:hover,
+.cleanAndBackspace:hover,
+.iguality:hover {
   cursor: pointer;
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.number:active, .cleanAndBackspace:active{
-  background-color: rgba(255,255,255, 0.1);
+.number:active,
+.cleanAndBackspace:active {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.number::selection, .cleanAndBackspace::selection{
+.number::selection,
+.cleanAndBackspace::selection {
   background: none;
 }
 
-.number:nth-child(12){
+.number:nth-child(12) {
   grid-row: 4 / 5;
   grid-column: 2 / 3;
 }
 
-.number:nth-child(11){
-  width: 185%;
-  margin-left: 6px;
-}
 
-.cleanAndBackspace:nth-child(2){
+.cleanAndBackspace:nth-child(2) {
   width: 190%;
 }
 
-.container-operators img:hover{
-  background-color: rgba(255,255,255, 0.2);
+.container-operators img:hover {
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 60%;
 }
 
-img:active{
-  background-color: rgba(255,255,255, 0.1);
+img:active {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media only screen  and (max-width: 600px) {
-  .container{
+@media only screen and (max-width: 600px) {
+  .container {
     margin: auto;
     height: 640px;
   }
 
-  .number, .cleanAndBackspace{
+  .number,
+  .cleanAndBackspace {
     width: 85px;
     font-size: 49px;
     height: 80px;
   }
-  
-  .number img{
-    top: 25%;
+
+  .iguality img {
+    top: 32%;
     width: 50px;
+  }
+
+  .iguality {
+    height: 80px;
   }
 }
