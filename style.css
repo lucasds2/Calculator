@@ -1,170 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+:root {
+  --calculator-buttons-background: #f3f3fa;
+  --calculator-buttons-color: #1f1f1f;
+  --calculator-background: #616161;
+}
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
 }
 
-body {
-  background: #2f2f2f;
-}
-
-.container {
-  background: linear-gradient(to bottom, #3f4c6b 0%, #3f4c6b 100%);
-  border: 5px solid black;
-  border-radius: 30px;
-  width: 350px;
-  height: 740px;
-  margin: 80px auto 0px auto;
-}
-
-.container-result {
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border-bottom: solid 5px black;
-}
-
-.result {
-  color: white;
-  padding: 10px;
-  font-size: 40px;
-  overflow: hidden;
-}
-
-.container-operators {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: space-evenly;
-  border-bottom: solid 5px black;
-}
-
-.sub-operators img {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-img {
-  margin-right: 10px;
+table {
   position: relative;
-  top: 2px;
+  top: 13px;
 }
 
-img:hover {
-  cursor: pointer;
-}
-
-img::selection,
-.operators::selection {
-  background: none;
-}
-
-.container-number {
-  width: 100%;
-  height: 59%;
-  border-top: solid 5px black;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.clean-backspace {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.number,
-.cleanAndBackspace,
-.iguality {
-  width: 100px;
-  font-size: 60px;
-  color: white;
-  border-radius: 30px;
-  text-align: center;
-  margin: 10px auto 0px auto;
-  height: 100px;
-  border: solid 5px black;
-}
-
-.iguality {
-  width: 185%;
-  margin-left: 6px;
-  font-size: 0;
-  display: grid;
+.background {
+  background-color: #262636;
+  height: 100vh;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.iguality img {
-  position: relative;
-  top: 33%;
-  left: 1%;
-  width: 60px;
+.calculator {
+  background: url(./src/background.png) no-repeat;
+  border: solid 5px black;
+  border-radius: 30px;
+  padding: 15px;
 }
 
-.cleanAndBackspace {
-  margin-bottom: 4px;
-}
-
-.number:hover,
-.cleanAndBackspace:hover,
-.iguality:hover {
+button {
+  color: var(--calculator-buttons-color);
+  background-color: var(--calculator-buttons-background);
+  border: none;
+  border-radius: 5px;
+  width: 55px;
+  height: 55px;
+  font-size: 20px;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.2);
+  margin: 3px 3px 3px 3px;
 }
 
-.number:active,
-.cleanAndBackspace:active {
-  background-color: rgba(255, 255, 255, 0.1);
+tr:nth-child(1) > td:nth-child(1) > button {
+  background: #f05353;
 }
 
-.number::selection,
-.cleanAndBackspace::selection {
-  background: none;
+tr:nth-child(5) > td:nth-child(1) > button {
+  width: 115px;
 }
 
-.number:nth-child(12) {
-  grid-row: 4 / 5;
-  grid-column: 2 / 3;
+tr:nth-child(4) > td:nth-child(4) > button {
+  height: 115px;
 }
 
-
-.cleanAndBackspace:nth-child(2) {
-  width: 190%;
+.container-result {
+  background: #9ccc65;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 5px;
+  height: 46px;
 }
 
-.container-operators img:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 60%;
-}
-
-img:active {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-@media only screen and (max-width: 600px) {
-  .container {
-    margin: auto;
-    height: 640px;
-  }
-
-  .number,
-  .cleanAndBackspace {
-    width: 85px;
-    font-size: 49px;
-    height: 80px;
-  }
-
-  .iguality img {
-    top: 32%;
-    width: 50px;
-  }
-
-  .iguality {
-    height: 80px;
-  }
+.result {
+  margin-right: 10px;
 }
