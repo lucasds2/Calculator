@@ -1,101 +1,104 @@
-const numbers = document.querySelectorAll(".number");
-const operators = document.querySelectorAll(".operator");
-let arr = [];
-
-for (let i = 0; i < numbers.length; i++) {
-  const isNumber = numbers[i];
-  const valueOfNumbers = isNumber.innerText;
-  if (i <= 3) {
-    const isOperators = operators[i];
-    const valueOfOperators = isOperators.innerText;
-    isOperators.addEventListener("click", () => {
-      divResult(valueOfOperators);
-    });
-  }
-  isNumber.addEventListener("click", () => {
-    divResult(valueOfNumbers);
-  });
-}
-
-function keyboardInput() {
-  window.document.addEventListener("keydown", function (user) {
-    let arrayWithValues = [];
-    arrayWithValues.push(user.key);
-    let isNumber = isNaN(user.key);
-    let isOperators =
-      arrayWithValues[0] === "+" ||
-      arrayWithValues[0] === "-" ||
-      arrayWithValues[0] === "*" ||
-      arrayWithValues[0] === "/";
-    if (!isNumber) {
-      divResult(user.key);
-    } else if (isOperators) {
-      divResult(user.key);
-    } else if (user.key === "Backspace") {
-      buttons.backspaceKeyboard();
-    } else if (user.key === "Enter") {
-      calcOperation();
-    } else {
-      return "Apenas números e operadores";
-    }
-  });
-}
-
-function numberWithCommas(value) {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-class Buttons {
-  constructor(buttonClear, buttonBackspace, buttonCalc) {
-    this.buttonClear = buttonClear;
-    this.buttonBackspace = buttonBackspace;
-    this.buttonCalc = buttonCalc;
-    this.resultInner = document.querySelector(".result");
+class Calculator {
+  constructor(previousValueText, currentValueText) {
+    this.previousValueText = previousValueText;
+    this.currentValueText = currentValueText;
+    this.clearAll()
   }
 
   clearAll() {
-    this.buttonClear.addEventListener("click", () => {
-      this.resultInner.innerHTML = "";
-    });
+    this.previousValue = ""
+    this.currentValue = ""
+    this.operators = undefined
   }
 
   backspace() {
-    this.buttonBackspace.addEventListener("click", () => {
-      let resultHTML = this.resultInner.innerHTML;
-      this.resultInner.innerHTML = resultHTML.substring(
-        0,
-        resultHTML.length - 1
-      );
-    });
+    this.currentValue = this.currentValue.toString().slice(0, -1)
   }
 
-  backspaceKeyboard() {
-    let resultHTML = this.resultInner.innerHTML;
-    this.resultInner.innerHTML = resultHTML.substring(0, resultHTML.length - 1);
+  inputNumber(number) {
+    if (number === "." && this.currentValue.includes(".")) return
+    this.currentValue = this.currentValue.toString() + number.toString()
   }
 
-  calcOperation() {
-    this.buttonCalc.addEventListener("click", () => {
-      if (this.resultInner.innerHTML !== "") {
-        this.resultInner.innerHTML = numberWithCommas(
-          eval(this.resultInner.innerHTML)
-        );
-      }
-    });
+  inputOperator(operator) {
+    if (this.currentValue === "") return
+    if (this.previousValue !== null) {
+      this.perfomedOperation()
+    }
+    this.operation = operator
+    this.previousValue = this.currentValue
+    this.currentValue = ""
+  }
+
+  perfomedOperation() {
+    let perfomed;
+    let prevValue = parseFloat(this.previousValue)
+    let currentV = parseFloat(this.currentValue)
+    if (isNaN(currentV || isNaN(prevValue))) return
+    switch (this.operation) {
+      case "+":
+        perfomed = currentV + prevValue
+        break;
+      case "-":
+        perfomed = currentV - prevValue
+        break;
+      case "*":
+        perfomed = currentV * prevValue
+        break;
+      case "/":
+        perfomed = currentV / prevValue
+        break;
+      default:
+        return
+    }
+    this.currentValue = perfomed
+    this.operation = undefined
+    this.previousValue = ""
+  }
+
+  updateDisplay() {
+    this.currentValueText.innerText = this.currentValue
+    this.previousValueText.innerText = this.previousValue
   }
 }
 
-let buttonClear = document.querySelector(".clear-all");
-let buttonBackspace = document.querySelector(".backspace");
-let buttonCalc = document.querySelector(".calc");
+const numbersButton = document.querySelectorAll(".number");
+const previousValueText = document.querySelector(".previous-value");
+const currentValueText = document.querySelector(".current-value");
+const operatorsButton = document.querySelectorAll(".operator");
+const clearAllButton = document.querySelector(".clear-all");
+const backspaceButton = document.querySelector(".backspace");
+const calcButton = document.querySelector(".calc");
 
-const buttons = new Buttons(buttonClear, buttonBackspace, buttonCalc);
-buttons.clearAll();
-buttons.backspace();
-buttons.calcOperation();
+const calculator = new Calculator(previousValueText, currentValueText)
 
-function divResult(value) {
-  document.querySelector(".result").innerHTML += value;
-}
+numbersButton.forEach(number => {
+  number.addEventListener("click", () => {
+    calculator.inputNumber(number.innerText)
+    calculator.updateDisplay()
+  })
+})
 
-window.addEventListener("load", keyboardInput());
+operatorsButton.forEach(operator => {
+  operator.addEventListener("click", () => {
+    calculator.inputOperator(operator.innerText)
+    calculator.updateDisplay()
+  })
+})
+
+calcButton.addEventListener("click", () => {
+  calculator.perfomedOperation()
+  calculator.updateDisplay()
+})
+
+clearAllButton.addEventListener("click", () => {
+  calculator.clearAll()
+  calculator.updateDisplay()
+})
+
+backspaceButton.addEventListener("click", () => {
+  calculator.backspace()
+  calculator.updateDisplay()
+})
+
+backspaceButton.innerHTML = "<"
