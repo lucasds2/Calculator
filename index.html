@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora</title>
-    <link rel="icon" href="./src/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" defer></script>
-  </head>
 
-  <body>
-    <main class="background">
-      <div class="calculator">
-        <div class="container-result">
-          <p class="result"></p>
-        </div>
-          <table>
-          <tbody>
-            <tr>
-              <td><button class="clear-all">C</button></td>
-              <td><button class="backspace"><</button></td>
-              <td><button class="operator">/</button></td>
-              <td><button class="operator">*</button></td>
-            </tr>
-            <tr>
-              <td><button class="number">7</button></td>
-              <td><button class="number">8</button></td>
-              <td><button class="number">9</button></td>
-              <td><button class="operator">-</button></td>
-            </tr>
-            <tr>
-              <td><button class="number">4</button></td>
-              <td><button class="number">5</button></td>
-              <td><button class="number">6</button></td>
-              <td><button class="operator">+</button></td>
-            </tr>
-            <tr>
-              <td><button class="number">1</button></td>
-              <td><button class="number">2</button></td>
-              <td><button class="number">3</button></td>
-              <td rowspan="2" class="calc"><button>=</button></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="number"><button>0</button></td>
-              <td><button>.</button></td>
-            </tr>
-          </tbody>
-        </table>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora</title>
+  <link rel="icon" href="./src/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <main class="background">
+    <div class="calculator">
+      <div class="container-result">
+        <p class="previous-value"></p>
+        <p class="current-value"></p>
       </div>
-    </main>
-  </body>
+      <table>
+        <tbody>
+          <tr>
+            <td><button class="clear-all">C</button></td>
+            <td><button class="backspace"></button></td>
+            <td><button class="operator">/</button></td>
+            <td><button class="operator">*</button></td>
+          </tr>
+          <tr>
+            <td><button class="number">7</button></td>
+            <td><button class="number">8</button></td>
+            <td><button class="number">9</button></td>
+            <td><button class="operator">-</button></td>
+          </tr>
+          <tr>
+            <td><button class="number">4</button></td>
+            <td><button class="number">5</button></td>
+            <td><button class="number">6</button></td>
+            <td><button class="operator">+</button></td>
+          </tr>
+          <tr>
+            <td><button class="number">1</button></td>
+            <td><button class="number">2</button></td>
+            <td><button class="number">3</button></td>
+            <td rowspan="2" class="calc"><button>=</button></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button class="number">0</button></td>
+            <td><button class="number">.</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+
 </html>
