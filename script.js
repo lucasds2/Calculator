@@ -16,6 +16,7 @@ class Calculator {
   }
 
   inputNumber(number) {
+    if (this.currentValue >= 10000000000000000000) return
     if (number === "." && this.currentValue.includes(".")) return
     this.currentValue = this.currentValue.toString() + number.toString()
   }
@@ -34,31 +35,52 @@ class Calculator {
     let perfomed;
     let prevValue = parseFloat(this.previousValue)
     let currentV = parseFloat(this.currentValue)
-    if (isNaN(currentV || isNaN(prevValue))) return
+    if (isNaN(prevValue) || isNaN(currentV)) return
     switch (this.operation) {
       case "+":
-        perfomed = currentV + prevValue
+        perfomed = prevValue + currentV
         break;
       case "-":
-        perfomed = currentV - prevValue
+        perfomed = prevValue - currentV
         break;
       case "*":
-        perfomed = currentV * prevValue
+        perfomed = prevValue * currentV
         break;
       case "/":
-        perfomed = currentV / prevValue
+        perfomed = prevValue / currentV
         break;
       default:
         return
     }
     this.currentValue = perfomed
     this.operation = undefined
-    this.previousValue = ""
+    this.previousValue = ''
+  }
+
+  currentDisplayNumber(number) {
+    let numberToString = number.toString()
+    let digitsInInteger = parseFloat(numberToString.split(".")[0])
+    let numbersDecimal = numberToString.split(".")[1]
+    let numbersDisplay;
+    if (isNaN(digitsInInteger)) {
+      numbersDisplay = ''
+    } else {
+      numbersDisplay = digitsInInteger.toLocaleString("en", { maximiumFractionDigits: 0 })
+    }
+    if (numbersDecimal != null) {
+      return `${numbersDisplay}.${numbersDecimal}`
+    } else {
+      return numbersDisplay
+    }
   }
 
   updateDisplay() {
-    this.currentValueText.innerText = this.currentValue
-    this.previousValueText.innerText = this.previousValue
+    this.currentValueText.innerText = this.currentDisplayNumber(this.currentValue)
+    if (this.operation != null) {
+      this.previousValueText.innerText = `${this.currentDisplayNumber(this.previousValue)} ${this.operation}`
+    } else {
+      this.previousValueText.innerText = ''
+    }
   }
 }
 
