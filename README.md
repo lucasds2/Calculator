@@ -1,9 +1,15 @@
-# Calculator 🖩
+<div align="center">
+  <p><img src="./src/favicon.png" width="100px"></p>
+</div>
 
+<h1 align="center">Calculator</h1>
+<p align="center">A simple calculator for your homework</p>
 
-
-Uma simples calculadora porém muito efetiva.
-
-* No computador você pode usar o teclado. Com os números de 0 a 9, os operadores ("+", "-", "*", "/"), enter e backspace.
-
-![2021-09-21_18-10](https://user-images.githubusercontent.com/67769304/134248256-4d592698-ddeb-4450-bc54-171669e88e88.png)
+<h3 align="center">
+<a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+</a>
+<a href="https://twitter.com/lucasds07" target="_blank">
+    <img alt="Twitter: lucasds07" src="https://img.shields.io/twitter/follow/lucasds07.svg?style=social" />
+  </a>
+</h3>
