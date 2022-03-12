@@ -13,3 +13,11 @@
     <img alt="Twitter: lucasds07" src="https://img.shields.io/twitter/follow/lucasds07.svg?style=social" />
   </a>
 </h3>
+
+<br />
+
+## Preview
+
+Running app:
+
+![Preview](./src/preview.png)
